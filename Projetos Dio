@@ -1,0 +1,32 @@
+public class Config {
+    private static Config instance;
+    private String databaseUrl;
+    private String databaseUsername;
+    private String databasePassword;
+    
+    private Config() {
+        // Construtor privado para impedir a criação direta de instâncias
+        this.databaseUrl = "jdbc:mysql://localhost/mydb";
+        this.databaseUsername = "myuser";
+        this.databasePassword = "mypassword";
+    }
+    
+    public static Config getInstance() {
+        if (instance == null) {
+            instance = new Config();
+        }
+        return instance;
+    }
+    
+    public String getDatabaseUrl() {
+        return databaseUrl;
+    }
+    
+    public String getDatabaseUsername() {
+        return databaseUsername;
+    }
+    
+    public String getDatabasePassword() {
+        return databasePassword;
+    }
+}
